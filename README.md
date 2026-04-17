@@ -1,205 +1,194 @@
-# 🛠️ ForgeAdmin – Frontend (Admin Dashboard UI Only)
+# � ForgeAdmin – Full-Stack Ready Admin Dashboard
 
 ## 📌 Overview
 
-**ForgeAdmin** is a **frontend-only e-commerce management dashboard** built for the **BackForge Hackathon**.
+**ForgeAdmin** is a production-ready **Admin Dashboard System** designed for modern e-commerce platforms.
+Originally built for the **BackForge Hackathon**, it provides a **complete frontend UI + structured backend API design**, enabling rapid full-stack development.
 
-It provides a complete **admin panel UI** for managing an online store, while leaving all backend logic such as APIs, authentication, and database integration to be implemented separately.
-
-This dashboard simulates a real-world store management system with modules like:
-
-* Products
-* Orders
-* Inventory
-* Analytics
-* Customers
-* Promotions
-* Staff Management
-
-📄 Reference Documentation: 
+This project is not just UI — it is a **backend-integrated architecture blueprint** for scalable admin systems.
 
 ---
 
-## 🚀 Key Features
+## 🎯 Vision
 
-* Modern admin dashboard UI
-* Multi-page architecture
-* Fully responsive design
-* Reusable components
-* Backend-ready frontend structure
+ForgeAdmin is designed to:
 
----
-
-## 🏗️ System Architecture
-
-ForgeAdmin follows a **static multi-page dashboard architecture**:
-
-* Each module is built as a separate HTML page
-* Shared CSS and Tailwind styling
-* No backend or database integration
-* Static placeholder data
-
-### 🔹 Architecture Layers
-
-**1. UI Layer**
-
-* HTML
-* CSS + Tailwind CSS
-* Font Awesome icons
-
-**2. Logic Layer**
-
-* Minimal JavaScript
-* No API calls
-* No real functionality
-
-**3. Data Layer**
-
-* No database
-* Static hardcoded data
+* Accelerate full-stack development
+* Provide a clean separation of frontend and backend
+* Simulate real-world enterprise admin workflows
+* Enable rapid prototyping during hackathons
 
 ---
 
-## 🔐 Authentication Module
+## 🧠 System Architecture
 
-* Login page
-* Signup page
-* Credential input fields
+ForgeAdmin follows a **decoupled architecture**:
 
-⚠️ *Note: No real authentication or session management is implemented.*
+```
+Frontend (HTML/CSS/JS)
+    ↓
+REST API (FastAPI)
+    ↓
+MongoDB (Database)
+```
 
----
+### 🔹 Key Principles
 
-## 📊 Dashboard Module
-
-* KPI cards (Sales, Revenue, Orders, Customers)
-* Overview analytics
-* Sidebar navigation
-* Recent activity panel
-
----
-
-## 📈 Analytics Module
-
-* Traffic overview
-* Device usage stats
-* Sales trends
-* Engagement metrics
-
----
-
-## 📦 Products Module
-
-* Product listing UI
-* SKU & stock display
-* Search and filter interface
-
----
-
-## 🗂️ Categories Module
-
-* Category listing
-* Product grouping UI
-* Status indicators
-
----
-
-## 📦 Inventory Module
-
-* Stock tracking UI
-* Low-stock alerts
-* Quantity indicators
-
----
-
-## 🧾 Orders Module
-
-* Order listing
-* Status tracking
-* Customer order details
-
----
-
-## 👥 Customers Module
-
-* Customer profiles
-* Purchase history
-* Spending insights
-
----
-
-## ⭐ Reviews Module
-
-* Customer feedback UI
-* Ratings display
-* Sentiment overview
-
----
-
-## 🎯 Promotions Module
-
-* Coupon management UI
-* Discount tracking
-* Expiry indicators
-
----
-
-## 👨‍💼 Staff Module
-
-* Staff listing
-* Role assignment UI
-* Permission overview
-
----
-
-## ⚙️ Settings Module
-
-* Profile settings
-* Email preferences
-* Notification toggles
-
----
-
-## 🎨 UI/UX Design
-
-### Design Principles
-
-* Clean & professional layout
-* Card-based UI
-* Minimal navigation
-* Dashboard-focused experience
-
-### Styling
-
-* Tailwind CSS utilities
-* Custom CSS
-* Rounded cards
-* Soft shadows
-
-### Interactions
-
-* Hover effects
-* Smooth transitions
-* Sidebar animations
-
----
-
-## 📐 Layout Structure
-
-* Multi-page dashboard
-* Shared sidebar & header
-* Responsive grid system
-* Consistent spacing & typography
+* Modular design
+* API-first architecture
+* Scalable backend structure
+* Clean separation of concerns
 
 ---
 
 ## 🧰 Tech Stack
 
+### Frontend
+
 * HTML5
-* CSS3
 * Tailwind CSS
-* Font Awesome 6.4.0
-* Google Fonts (Inter)
+* Vanilla JavaScript
+* Font Awesome
+
+### Backend
+
+* FastAPI (Python)
+* JWT Authentication (Access + Refresh)
+* Middleware (Auth, Logging, Error Handling)
+
+### Database
+
+* MongoDB (Dockerized)
+
+---
+
+## 🔐 Authentication System
+
+Secure authentication using JWT:
+
+| Endpoint                  | Description          |
+| ------------------------- | -------------------- |
+| POST `/api/auth/register` | Register user        |
+| POST `/api/auth/login`    | Login user           |
+| POST `/api/auth/refresh`  | Refresh access token |
+| POST `/api/auth/logout`   | Logout user          |
+| GET `/api/auth/me`        | Get current user     |
+
+---
+
+## 📊 Dashboard APIs
+
+| Endpoint                               | Description          |
+| -------------------------------------- | -------------------- |
+| GET `/api/dashboard/stats`             | Dashboard statistics |
+| GET `/api/dashboard/sales-by-category` | Sales insights       |
+
+---
+
+## 📈 Analytics APIs
+
+| Endpoint                      | Description      |
+| ----------------------------- | ---------------- |
+| GET `/api/analytics/overview` | Overview metrics |
+| GET `/api/analytics/traffic`  | Traffic analysis |
+| GET `/api/analytics/devices`  | Device usage     |
+
+---
+
+## 📦 Products APIs
+
+| Method | Endpoint                     |
+| ------ | ---------------------------- |
+| GET    | `/api/products`              |
+| POST   | `/api/products`              |
+| GET    | `/api/products/{product_id}` |
+| PUT    | `/api/products/{product_id}` |
+| DELETE | `/api/products/{product_id}` |
+
+---
+
+## 🗂️ Categories APIs
+
+| Method | Endpoint                   |
+| ------ | -------------------------- |
+| GET    | `/api/categories`          |
+| POST   | `/api/categories`          |
+| PUT    | `/api/categories/{cat_id}` |
+| DELETE | `/api/categories/{cat_id}` |
+
+---
+
+## 🧾 Orders APIs
+
+| Method | Endpoint                        |
+| ------ | ------------------------------- |
+| GET    | `/api/orders/summary`           |
+| GET    | `/api/orders`                   |
+| POST   | `/api/orders`                   |
+| GET    | `/api/orders/{order_id}`        |
+| PUT    | `/api/orders/{order_id}/status` |
+
+---
+
+## 👥 Customers APIs
+
+| Method | Endpoint                       |
+| ------ | ------------------------------ |
+| GET    | `/api/customers`               |
+| POST   | `/api/customers`               |
+| GET    | `/api/customers/{customer_id}` |
+| PUT    | `/api/customers/{customer_id}` |
+| DELETE | `/api/customers/{customer_id}` |
+
+---
+
+## ⭐ Reviews APIs
+
+| Method | Endpoint                   |
+| ------ | -------------------------- |
+| GET    | `/api/reviews`             |
+| POST   | `/api/reviews`             |
+| PUT    | `/api/reviews/{review_id}` |
+| DELETE | `/api/reviews/{review_id}` |
+
+---
+
+## 🎯 Promotions APIs
+
+| Method | Endpoint                     |
+| ------ | ---------------------------- |
+| GET    | `/api/promotions`            |
+| POST   | `/api/promotions`            |
+| PUT    | `/api/promotions/{promo_id}` |
+| DELETE | `/api/promotions/{promo_id}` |
+
+---
+
+## 👨‍💼 Staff APIs
+
+| Method | Endpoint                |
+| ------ | ----------------------- |
+| GET    | `/api/staff`            |
+| POST   | `/api/staff`            |
+| PUT    | `/api/staff/{staff_id}` |
+| DELETE | `/api/staff/{staff_id}` |
+
+---
+
+## ⚙️ Settings APIs
+
+| Method | Endpoint        |
+| ------ | --------------- |
+| GET    | `/api/settings` |
+| PUT    | `/api/settings` |
+
+---
+
+## ❤️ Health Check
+
+| Endpoint | Description      |
+| -------- | ---------------- |
+| GET `/`  | API Health Check |
 
 ---
 
@@ -207,93 +196,110 @@ ForgeAdmin follows a **static multi-page dashboard architecture**:
 
 ```
 /
-├── index.html            # Login Page
-├── style.css             # Global Styles
-├── components/
-│   ├── sidebar.html
-│   └── header.html
-└── pages/
-    ├── signup.html
-    ├── dashboard.html
-    ├── analytics.html
-    ├── products.html
-    ├── categories.html
-    ├── inventory.html
-    ├── orders.html
-    ├── customers.html
-    ├── reviews.html
-    ├── promotions.html
-    ├── staff.html
-    └── settings.html
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   ├── components/
+│   └── pages/
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── models/
+│   ├── schemas/
+│   ├── middleware/
+│   ├── config/
+│   └── main.py
+│
+├── docker-compose.yml
 ```
 
 ---
 
-## 📱 Responsiveness
+## ▶️ Getting Started
 
-Optimized for:
+### 1. Start MongoDB
 
-* Desktop 💻
-* Tablet 📱
-* Mobile 📲
-
-Using:
-
-* Flexbox
-* CSS Grid
-* Tailwind responsive utilities
+```bash
+docker compose up -d
+```
 
 ---
 
-## ⚠️ Limitations
+### 2. Start Backend
 
-* No backend integration
-* No database
-* No authentication system
-* No API calls
-* No real data handling
-* No dynamic analytics
+```bash
+cd backend
+source venv/bin/activate
+uvicorn main:app --reload
+```
+
+---
+
+### 3. Start Frontend
+
+```bash
+cd frontend
+python3 -m http.server 5500
+```
+
+---
+
+### 🌐 Access
+
+* Frontend → http://localhost:5500
+* Backend → http://localhost:8000/docs
+* MongoDB UI → http://localhost:8081
+
+---
+
+## � Security Design
+
+* JWT-based authentication
+* Refresh token via HTTP-only cookies
+* Role-based system ready
+* Middleware-based request validation
+
+---
+
+## ⚠️ Current Limitations
+
+* Frontend still partially static
+* No real-time updates
+* No WebSocket integration
+* Basic role management
 
 ---
 
 ## 🔮 Future Enhancements
 
-* Backend API integration
-* JWT/OAuth authentication
-* Real-time analytics
-* Database connectivity
-* Advanced filtering & search
-* Role-based access control
-* Notifications system
+* RBAC (Admin / Staff roles)
+* Real-time dashboards (WebSockets)
+* Payment gateway integration
+* AI-based analytics
+* Microservices architecture
 
 ---
 
-## 🎯 Purpose
+## 🏆 Hackathon Value
 
-ForgeAdmin is designed to:
+ForgeAdmin demonstrates:
 
-* Provide a ready-made admin UI
-* Accelerate hackathon development
-* Allow focus on backend implementation
-
----
-
-## 🏁 Conclusion
-
-ForgeAdmin offers a **complete admin dashboard UI foundation** for building a full-stack e-commerce management system.
-
-It helps developers:
-
-* Skip UI development time
-* Focus on backend logic
-* Build scalable admin systems
+* Real-world system design
+* Clean API structuring
+* Scalable architecture thinking
+* Full-stack integration capability
 
 ---
 
 ## 🤝 Contribution
 
-This project is part of the **BackForge Hackathon** ecosystem.
-Feel free to fork, extend, and integrate backend solutions.
+Open for:
+
+* Backend improvements
+* Feature additions
+* UI enhancements
 
 ---
 
@@ -303,4 +309,6 @@ Open for educational and hackathon use.
 
 ---
 
-💡 *Manage smarter. Build faster. Forge better.*
+## 💡 Closing Note
+
+> ForgeAdmin is not just a dashboard — it’s a **blueprint for scalable admin systems**.
