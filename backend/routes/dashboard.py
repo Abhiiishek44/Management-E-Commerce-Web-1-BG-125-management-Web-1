@@ -17,3 +17,8 @@ async def get_stats(_user: dict = Depends(get_current_user)):
 @router.get("/sales-by-category")
 async def get_sales_by_category(_user: dict = Depends(get_current_user)):
     return await dashboard_controller.get_sales_by_category()
+
+
+@router.get("/revenue-overview")
+async def get_revenue_overview(_user: dict = Depends(get_current_user)):
+    return await dashboard_controller.get_revenue_overview()
